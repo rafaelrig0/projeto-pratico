@@ -44,6 +44,9 @@ st.markdown(
     e exportações.
     """
 )
+st.write("Disciplina: Linguagens de Programação")
+st.write("Professor: Alexandre Neves Louzada")
+st.write("Aluno: Rafael Rigo de Oliveira")
 
 st.divider()
 
