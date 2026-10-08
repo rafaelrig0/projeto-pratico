@@ -1,10 +1,11 @@
-# Dashboard de Produção Agrícola no Brasil (2015–2024)
+# Dashboard de Produção Agrícola no Brasil (2015–2024) (Tema 29).
 
 ## 1. Descrição do projeto
 
 Este projeto apresenta uma **análise completa da produção agrícola no Brasil**, cobrindo todo o pipeline de dados: da importação do dado bruto até a publicação de um dashboard interativo.
 
-O projeto foi desenvolvido como avaliação G2 da disciplina **Linguagem de Programação — Análise e Visualização de Dados com Python** (Tema 29).
+ **Linguagem de Programação — Professor: Alexandre Neves Louzada**
+ **Aluno: Rafael Rigo de Oliveira**
 
 ### Fluxo do Projeto
 
