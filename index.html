@@ -1,15 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título da Página</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Produção Agrícola Brasil — G2</title>
+<style>
+  :root {
+    --verde-escuro: #14532d;
+    --verde: #2e7d32;
+    --verde-claro: #e8f5e9;
+    --ouro: #f9a825;
+    --texto: #1f2933;
+    --suave: #5f6c7b;
+    --fundo: #f6faf6;
+    --card: #ffffff;
+    --borda: #dcebdc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verde-claro: #16301c;
+      --texto: #e6efe6;
+      --suave: #9db0a0;
+      --fundo: #0e1a11;
+      --card: #15251a;
+      --borda: #24402b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.65; color: var(--texto); background: var(--fundo);
+  }
+  header {
+    background: linear-gradient(135deg, var(--verde-escuro), var(--verde) 70%, #66bb6a);
+    color: #fff; text-align: center; padding: 64px 20px 72px;
+    border-radius: 0 0 32px 32px;
+  }
+  header h1 { margin: 8px 0 10px; font-size: clamp(26px, 5vw, 40px); line-height: 1.2; }
+  header p { margin: 0 auto; max-width: 560px; opacity: .92; }
+  .selo {
+    display: inline-block; margin-top: 18px; padding: 4px 14px; font-size: 13px;
+    background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); border-radius: 999px;
+  }
+  main { max-width: 860px; margin: -36px auto 0; padding: 0 16px 24px; }
+  section {
+    background: var(--card); border: 1px solid var(--borda); border-radius: 16px;
+    padding: 22px 26px; margin-bottom: 18px; box-shadow: 0 2px 10px rgba(20,83,45,.06);
+  }
+  h2 { margin: 0 0 12px; font-size: 20px; color: var(--verde); }
+  @media (prefers-color-scheme: dark) { h2 { color: #81c784; } }
+  p { margin: 0 0 8px; }
+  ul.perguntas { margin: 0; padding-left: 20px; }
+  ul.perguntas li { margin-bottom: 4px; }
+  ul.perguntas li::marker { color: var(--ouro); }
+
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .kpi {
+    background: var(--verde-claro); border-left: 4px solid var(--verde);
+    border-radius: 10px; padding: 12px 14px;
+  }
+  .kpi strong { display: block; }
+  .kpi span { font-size: 14px; color: var(--suave); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span {
+    padding: 5px 14px; border-radius: 999px; font-size: 14px; font-weight: 600;
+    background: var(--verde-claro); color: var(--verde); border: 1px solid var(--borda);
+  }
+  @media (prefers-color-scheme: dark) { .chips span { color: #a5d6a7; } }
+
+  .botoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+  .botoes a {
+    padding: 10px 18px; border-radius: 10px; font-weight: 600; text-decoration: none;
+    color: #fff; background: var(--verde); transition: transform .15s, background .15s;
+  }
+  .botoes a:hover { background: var(--verde-escuro); transform: translateY(-2px); }
+  .botoes a.destaque { background: var(--ouro); color: #3b2a00; }
+  .botoes a.destaque:hover { background: #f57f17; color: #fff; }
+
+  footer { text-align: center; font-size: 13px; color: var(--suave); padding: 8px 16px 40px; }
+</style>
 </head>
 <body>
-    <h1>Olá, Mundo!</h1>
-    <p>Este é um parágrafo de exemplo.</p>
+
+<header>
+  <h1>Dashboard de Produção Agrícola no Brasil</h1>
+  <p>Análise e visualização de dados com Python, Pandas, Plotly e Streamlit</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Sobre o projeto</h2>
+    <p>
+      Análise da produção agrícola brasileira considerando produção, produtividade, área plantada,
+      clima, valor econômico e exportações, por região, estado e cultura.
+    </p>
+  </section>
+
+  <section>
+    <h2>Perguntas de negócio</h2>
+    <ul class="perguntas">
+      <li>Quais estados apresentam maior produção?</li>
+      <li>Quais culturas possuem maior produtividade e maior valor econômico?</li>
+      <li>Houve crescimento da produção ao longo do tempo?</li>
+      <li>Existe relação entre clima e produtividade?</li>
+      <li>Quais regiões concentram maior área plantada?</li>
+      <li>Existem períodos críticos de produção?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Indicadores analisados</h2>
+    <div class="kpis">
+      <div class="kpi"><strong>Produção total</strong></div>
+      <div class="kpi"><strong>Cultura mais produzida</strong></div>
+      <div class="kpi"><strong>Estado mais produtivo</strong></div>
+      <div class="kpi"><strong>Área plantada total</strong></div>
+      <div class="kpi"><strong>Valor econômico total</strong></div>
+      <div class="kpi"><strong>Média de produtividade</strong></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tecnologias utilizadas</h2>
+    <div class="chips">
+      <span>Python</span><span>Pandas</span><span>NumPy</span><span>Plotly</span>
+      <span>Streamlit</span><span>SQLite</span><span>GitHub Pages</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Arquivos do projeto</h2>
+    <div class="botoes">
+      <a href="README.md"> Ver README</a>
+      <a href="notebook/prod_agricula.ipynb"> Ver Notebook</a>
+      <a href="dados/simulacao_producao_agricola_brasil.csv"> Baixar Base de Dados</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Dashboard interativo</h2>
+    <p>Explore os dados com filtros, KPIs, gráficos e tabelas dinâmicas.</p>
+    <div class="botoes">
+      <a class="destaque" href="https://SEU-APP.streamlit.app/"> Acessar Dashboard Streamlit</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Dados simulados, desenvolvidos para fins educacionais — Análise e Visualização de Dados com Python.
+</footer>
+
 </body>
 </html>
